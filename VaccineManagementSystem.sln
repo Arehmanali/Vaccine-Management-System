@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineManagementSystem", "VaccineManagementSystem\VaccineManagementSystem.csproj", "{96D611D2-3319-4325-9EC3-8568E45B1B16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96D611D2-3319-4325-9EC3-8568E45B1B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D611D2-3319-4325-9EC3-8568E45B1B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D611D2-3319-4325-9EC3-8568E45B1B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D611D2-3319-4325-9EC3-8568E45B1B16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C42CDD6C-CD94-4B7E-A515-552C4EC1BA7A}
+	EndGlobalSection
+EndGlobal

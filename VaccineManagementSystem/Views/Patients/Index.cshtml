@@ -1,0 +1,87 @@
+﻿@using VaccineManagementSystem;
+@model dynamic
+
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<h1 class="text-primary">Patients List</h1>
+
+<p>
+    <a asp-action="Create">Add New Patient</a>
+</p>
+@using (Html.BeginForm("RecievedClick", "Patients"))
+{
+    <table class="table">
+        <thead align="center">
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Vaccine Name
+                </th>
+                <th>
+                    1st Dose
+                </th>
+                <th>
+                    2nd Dose
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Patient)
+            {
+                <tr align="center">
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.PatientName
+                    </td>
+                    <td>
+                        @item.VaccineName
+                    </td>
+                    <td>
+                        @item.FirstDose
+                    </td>
+                    <td>
+                        @if (item.SecondDose != null)
+                        {
+                            @item.SecondDose
+                        }
+                        else
+                        {
+                            foreach (var vaccine in Model.Vaccine)
+                            {
+                                if (vaccine.VaccineName == item.VaccineName)
+                                {
+                                    if (vaccine.DosesRequired == 1)
+                                    {
+                                        <p>-</p>
+                                    }
+                                    else
+                                    {
+
+                                        if (vaccine.TotalDoseLeft > 0)
+                                        {
+                                        
+                                           <button class="btn btn-primary" type="submit" name="mine" value=@item.Id>Recieved</button>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-danger">Out of Stock!</p>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

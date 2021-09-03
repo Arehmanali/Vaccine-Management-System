@@ -1,0 +1,60 @@
+﻿@model IEnumerable<VaccineManagementSystem.Models.Vaccine>
+
+@{
+    ViewData["Title"] = "Vaccine List";
+}
+<h1 class="text-primary">Vaccine List</h1>
+<br />
+    <p>
+        <a asp-action="Create">New Vaccine</a> |
+        <a asp-action="AddDoses">New Doses</a>
+    </p>
+<table class="table">
+    <thead align="center">
+        <tr>
+            <th>
+                Vaccine Name
+            </th>
+            <th>
+                Doses Required
+            </th>
+            <th>
+                Days Between
+            </th>
+            <th>
+                Total Doses Recieved
+            </th>
+            <th>
+                Total Doses Left
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr align="center">
+            <td>
+                @Html.DisplayFor(modelItem => item.VaccineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DosesRequired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaysBetween)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDoseRecieved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDoseLeft)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@model VaccineManagementSystem.Models.Vaccine
+
+@{
+    ViewData["Title"] = "Edit Vaccine";
+}
+
+<h1 class="text-primary">Edit Vaccine</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" id="hfDaysBetween" value='@Model.DaysBetween' />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="VaccineName" class="control-label">Vaccine Name</label>
+                <input asp-for="VaccineName" class="form-control" />
+                <span asp-validation-for="VaccineName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DosesRequired, htmlAttributes: new { @class = "control-label" })
+                @*ViewBag.DosesRequired is holding all the doses required values*@
+                @Html.DropDownListFor(model => model.DosesRequired, ViewBag.DosesListItem as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DosesRequired, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="DaysBetween" class="control-label">Days Between Doses</label>
+                <input asp-for="DaysBetween" class="form-control" />
+                <span asp-validation-for="DaysBetween" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    var daysBetween = $('#hfDaysBetween').val();
+    $.each($("#ddlA option"), function () {
+            $(this).attr('selected', 'selected');
+        }
+    });
+</script>
+}
